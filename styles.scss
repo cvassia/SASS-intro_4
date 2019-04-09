@@ -1,0 +1,127 @@
+$background-color: rgba(0, 0, 255, 0.514);
+$black-color: black;
+
+$lucida-sans: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+  "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+$arial: Arial, Helvetica, sans-serif;
+
+@mixin flex {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+@mixin flex-rowwrap {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  height: 6rem;
+  text-align: center;
+  font-family: $lucida-sans;
+  padding: 1.5rem;
+
+  h1,
+  h2 {
+    font-size: 1rem;
+  }
+}
+
+.nav_links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  background-color: $background-color;
+
+  li {
+    padding: 1rem;
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: $black-color;
+    font-family: $arial;
+  }
+}
+
+.main {
+  @include flex;
+  align-items: center;
+
+  .section_text > h3 {
+    text-align: center;
+  }
+
+  .section_text,
+  .section_images {
+    margin: 1rem;
+  }
+
+  .section_images {
+    @include flex;
+    align-items: center;
+  }
+  img {
+    height: 12rem;
+    width: 18rem;
+    margin: 0 0.5rem 1rem 0.5rem;
+  }
+}
+
+.aside {
+  @include flex;
+  margin: 1rem;
+
+  .first_aside,
+  .second_aside,
+  .third_aside,
+  .fourth_aside {
+    border: 0.2rem solid $background-color;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.footer {
+  height: 5rem;
+  margin-top: 1rem;
+  background-color: $background-color;
+
+  .footer_links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .section_images {
+    @include flex-rowwrap;
+  }
+
+  .section_text {
+    width: 70%;
+  }
+
+  .aside {
+    @include flex-rowwrap;
+  }
+
+  .first_aside,
+  .second_aside,
+  .third_aside,
+  .fourth_aside {
+    width: 45%;
+    margin: 0.5rem;
+  }
+}
